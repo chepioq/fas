@@ -17,58 +17,44 @@
     <script type="text/javascript" src="${tg.url('/static/js/prototype.improvements.js')}"></script>
     <script type="text/javascript" src="${tg.url('/static/js/scriptaculous.js?load=effects')}"></script>
     <script type="text/javascript" src="${tg.url('/static/js/HelpBalloon.js')}"></script>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome-ie7.css" rel="stylesheet" />
   </head>
   <body py:match="body" py:attrs="select('@*')">
     <div id="wrapper">
-      <div id="head" class="head-${config.get('deployment_type', 'dev')}">
-        <h1><a href="http://fedoraproject.org/">${_('Fedora')}</a></h1>
-        <!-- TODO: Make this do something useful, talk about interface :)
-        <div id="searchbox">
-          <form action="" method="post">
-            <label for="q">${_('Search:')}</label>
-            <input type="text" name="q" id="q" />
-            <input type="submit" value="${_('Search')}" />
-          </form>
-        </div>
-        -->
-        <h2 py:if="config.get('deployment_type', 'dev')=='dev'">
-          DEVELOPMENT INSTANCE
-        </h2>
-        <h2 py:if="config.get('deployment_type', 'dev')=='stg'">
-          STAGING INSTANCE
-        </h2>
-      </div>
-      <div id="topnav">
-        <ul>
-          <li class="first"><a href="http://fedoraproject.org/">${_('Learn about Fedora')}</a></li>
-          <li><a href="http://get.fedoraproject.org/">${_('Download Fedora')}</a></li>
-          <li><a href="http://fedoraproject.org/wiki/">${_('Projects')}</a></li>
-          <li><a href="http://join.fedoraproject.org/">${_('Join Fedora')}</a></li>
-          <li><a href="http://fedoraproject.org/wiki/Communicate">${_('Communicate')}</a></li>
-          <li><a href="http://docs.fedoraproject.org/">${_('Help/Documentation')}</a></li>
-          <li><a href="https://fedoraproject.org/code-of-conduct">${_('Code of Conduct')}</a></li>
-        </ul>
-      </div>
-      <div id="infobar">
-        <div id="authstatus">
+      <div id="infobar" class="shadow clearfix">
+        <img src="${tg.url('/static/images/fedora-logo.png')}" />
+        <!--<div id="authstatus">
           <span py:if="not tg.identity.anonymous">
             <strong>${_('Logged in:')}</strong> ${tg.identity.user.username}
           </span>
-        </div>
+        </div>-->
         <div id="control">
           <ul class="toolbar" id="#main-toolbar">
-            <li class="toolitem"><a href="${tg.url('/about')}">About</a></li>
-            <logintoolitem href="${tg.url('/user/view/')}" />
+            <logintoolitem href="${tg.url('/user/view/')}" /> <!-- TODO: unbuttonize this -->
           </ul>
         </div>
+      </div>
+      <div id="topnav" class="shadow">
+        <ul>
+          <li><a href="http://fedoraproject.org/"><i class="icon-lightbulb"></i> ${_('Learn about Fedora')}</a></li>
+          <li><a href="http://get.fedoraproject.org/"><i class="icon-download"></i> ${_('Download Fedora')}</a></li>
+          <li><a href="http://fedoraproject.org/wiki/"><i class="icon-cogs"></i> ${_('Projects')}</a></li>
+          <li><a href="http://join.fedoraproject.org/"><i class="icon-group"></i> ${_('Join Fedora')}</a></li>
+          <li><a href="http://fedoraproject.org/wiki/Communicate"><i class="icon-comments"></i> ${_('Communicate')}</a></li>
+          <li><a href="http://docs.fedoraproject.org/"><i class="icon-book"></i> ${_('Help/Documentation')}</a></li>
+          <li><a href="https://fedoraproject.org/code-of-conduct"><i class="icon-pushpin"></i> ${_('Code of Conduct')}</a></li>
+        </ul>
       </div>
       <div id="main">
         <div id="sidebar">
           <ul>
-            <li class="first"><a href="${tg.url('/home')}">${_('Home')}</a></li>
-            <li py:if="not tg.identity.anonymous"><a href="${tg.url('/user/view/%s' % tg.identity.user.username)}">${_('My Account')}</a></li>
-	    <li py:if="not tg.identity.anonymous" py:for="entry in sidebar.getEntries()"><a href="${tg.url(entry[1])}">${_(entry[0])}</a></li>
-            <li><a href="http://fedoraproject.org/wiki/FWN/LatestIssue">${_('News')}</a></li>
+            <li><a href="${tg.url('/home')}"><i class="icon-home"></i> ${_('Home')}</a></li>
+            <li py:if="not tg.identity.anonymous"><a href="${tg.url('/user/view/%s' % tg.identity.user.username)}"><i class="icon-user"></i> ${_('My Account')}</a></li>
+            <li py:if="not tg.identity.anonymous and ('sysadmin' in tg.identity.user.memberships or 'accounts' in tg.identity.user.memberships)"><a href="/group/new"><i class="icon-plus"></i> ${_('New Group')}</a></li>
+            <li py:if="not tg.identity.anonymous and ('sysadmin' in tg.identity.user.memberships or 'accounts' in tg.identity.user.memberships)"><a href="/user/list"><i class="icon-list"></i> ${_('User List')}</a></li>
+            <li py:if="not tg.identity.anonymous"><a href="/group/list/A*"><i class="icon-list"></i> ${_('Group List')}</a></li>
+            <li><a href="http://fedoraproject.org/wiki/FWN/LatestIssue"><i class="icon-bullhorn"></i> ${_('News')}</a></li>
           </ul>
           <div py:if="tg.identity.anonymous and tg.available_languages and len(tg.available_languages) > 1" id="language">
             <!-- TODO: Should this be available to logged in users to (and actually change their DB entry?) -->
