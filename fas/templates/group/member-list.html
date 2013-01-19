@@ -3,7 +3,7 @@
     xmlns:py="http://genshi.edgewall.org/"
     xmlns:xi="http://www.w3.org/2001/XInclude"
     py:strip="">
-  <table py:def="member_table(members, group, person)">
+  <table class="newtable" py:def="member_table(members, group, person)">
     <?python
     from fas import auth
     import pytz
@@ -20,7 +20,7 @@
         <th py:if="can_sponsor">${_('Action')}</th>
       </tr>
     </thead>
-    <tr py:for="role in members">
+    <tr py:for="i, role in enumerate(members)" class="${i % 2 and 'odd'}">
       <td><a href="${tg.url('/user/view/%s' % role.member.username)}">${role.member.username}<br />${role.member.email}</a></td>
       <td py:if='role.sponsor'><a href="${tg.url('/user/view/%s' % role.sponsor.username)}">${role.sponsor.username}</a></td>
       <td py:if='not role.sponsor'>${_('None')}</td>
@@ -58,4 +58,4 @@
       </td>
     </tr>
   </table>
-</html> 
+</html>

@@ -46,9 +46,9 @@
         <dt>${_('Owner:')}</dt><dd><a href="${tg.url('/user/view/%s') % group.owner.username}">${group.owner.username}</a></dd>
         <dt>${_('Type:')}</dt><dd>${group.group_type}&nbsp;</dd>
 
-	<dt>${_('Rules for Application:')}</dt><dd>${group.apply_rules}&nbsp;</dd>
+	      <dt>${_('Rules for Application:')}</dt><dd>${group.apply_rules}&nbsp;</dd>
 
-	<dt>${_('Approved Members:')}</dt><dd>${len(group.approved_roles)}&nbsp;</dd>
+	      <dt>${_('Approved Members:')}</dt><dd>${len(group.approved_roles)}&nbsp;</dd>
 
         <py:if test="group.url">
         <dt>${_('URL:')}</dt><dd><a href="${group.url}">${group.url}</a>&nbsp;</dd>
@@ -103,14 +103,14 @@
     <h3 py:if='me.fedoraRoleStatus == "approved"'>${_('Invite')}</h3>
     <span py:if='me.fedoraRoleStatus == "approved"'>${form(action=tg.url('modifyGroup'), value=value, method='post')}</span>
     -->
-    
+
     <a py:if='len(group.roles) >= 51' href="${tg.url('/group/members/%s' % group.name)}"><h3>${_('View Member List')}</h3></a>
     <a py:if="51 > len(group.roles)" href="${tg.url('/group/members/%s/*' % group.name)}"><h3>${_('View Member List')}</h3></a>
-    <div py:if="can_sponsor">
+    <div py:if="can_sponsor" class="topmargin">
       <h3>${_('Sponsorship Queue')}</h3>
       ${member_table(sponsor_queue, group, person)}
     </div>
-    <div py:if="10 >= len(members)" >
+    <div py:if="10 >= len(members)" class="topmargin">
         <h3>${_('Members')}</h3>
         ${member_table(members, group, person)}
     </div>

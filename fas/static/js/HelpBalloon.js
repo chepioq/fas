@@ -158,11 +158,10 @@ HelpBalloon.prototype = {
 		//
 		if(typeof this.options.icon == 'string')
 		{
-			this._elements.icon = new Element('img', {
-				src: this.options.icon,
-				id: this.id + "_icon"
+			this._elements.icon = new Element('i', {
+                            class: 'icon-info-sign',
+                            style: 'cursor: pointer;'
 			});
-			this._elements.icon.setStyle('cursor', 'pointer');
 		}
 		else
 		{
