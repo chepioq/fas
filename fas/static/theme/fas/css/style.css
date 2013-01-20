@@ -313,7 +313,7 @@ a
 
 #sidebar a
 {
-  padding: 10px;
+  padding: 5px 10px 5px 10px;
   color: #445566;
   display: block;
 }
