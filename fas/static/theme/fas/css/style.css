@@ -474,6 +474,7 @@ a
   clear: both;
   text-align: center;
   padding: 15px 0 2.5ex;
+  border-top: 1px solid #ccc;
 }
 
 #footer .version, #footer .copy, #footer .disclaimer

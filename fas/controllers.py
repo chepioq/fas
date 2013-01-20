@@ -167,6 +167,7 @@ class Root(plugin.RootController):
                 # hack until we can figure out something better.
                 return dict()
             turbogears.redirect('/home')
+        cherrypy.response.headers['X-FAS-Version'] = release.VERSION
         return dict(now=time.ctime())
 
     @identity.require(identity.not_anonymous())
