@@ -21,7 +21,9 @@
       var sidebar_map = {
         // sidebar metadata => regex of location.pathname
         'home': /\/home\/?/,
-        'myaccount': /\/user\/view\/${tg.identity.user.username}\/?$/, // TODO: Regex escape this.
+        <py:if test="not tg.identity.anonymous">
+          'myaccount': /\/user\/view\/${tg.identity.user.username}\/?$/, // TODO: Regex escape this.
+        </py:if>
         'newgroup': /\/group\/new\/?/,
         'userlist': /\/user\/(?:list|view)\/?/,
         'grouplist': /\/group\/(?:list|view)\/?/

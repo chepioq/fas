@@ -94,7 +94,7 @@
 #master_header {
     background-color: #E0E3EC;
     padding: 20px;
-    margin-top: 45px;
+    margin-top: 55px;
     margin-left: 150px;
     border-bottom: 1px solid #C0C5D1;
 }
@@ -218,7 +218,7 @@ a
   height: 35px;
   line-height: 35px;
   width: 100%;
-  padding: 5px 10px 5px 10px;
+  padding: 10px;
   font-size: 1em;
   background-color: #eeeeee;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#dddddd), to(#eeeeee));
@@ -286,7 +286,7 @@ a
   background-color: #dddddd;
   border-radius: 3px;
   display: block;
-  top: 46px;
+  top: 56px;
   bottom: 0;
   position: fixed;
   box-shadow: 2px 0 2px #888888;
@@ -454,12 +454,6 @@ a
 #rolespanel .tools, #rolespanel .queue
 {
   list-style: none;
-}
-
-#rolespanel .tools li
-{
-  padding-left: 22px;
-  background: url(../images/tools.png) 0 50% no-repeat;
 }
 
 #rolespanel .queue li
