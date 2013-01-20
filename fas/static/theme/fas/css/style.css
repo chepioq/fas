@@ -137,6 +137,21 @@
 /* TODO: This is a horrible hack to get around patching python-fedora. */
 #login-box h3, #login-box p { display: none; }
 
+#master_header {
+    background-color: #E0E3EC;
+    padding: 20px;
+    margin-top: 45px;
+    margin-left: 150px;
+    border-bottom: 1px solid #C0C5D1;
+}
+
+#flash {
+    background-color: #ffffcc;
+    padding: 20px;
+    margin-left: 150px;
+    border-bottom: 1px solid #888800;
+}
+
 *
 {
   margin: 0;
