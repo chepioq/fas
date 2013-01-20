@@ -152,6 +152,9 @@
     border-bottom: 1px solid #888800;
 }
 
+/* TODO: This is a horrible hack to get around patching python-fedora. */
+#login-box h3, #login-box p { display: none; }
+
 *
 {
   margin: 0;
