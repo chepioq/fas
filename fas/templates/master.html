@@ -51,9 +51,9 @@
           <ul>
             <li><a href="${tg.url('/home')}"><i class="icon-home"></i> ${_('Home')}</a></li>
             <li py:if="not tg.identity.anonymous"><a href="${tg.url('/user/view/%s' % tg.identity.user.username)}"><i class="icon-user"></i> ${_('My Account')}</a></li>
-            <li py:if="not tg.identity.anonymous and ('sysadmin' in tg.identity.user.memberships or 'accounts' in tg.identity.user.memberships)"><a href="/group/new"><i class="icon-plus"></i> ${_('New Group')}</a></li>
-            <li py:if="not tg.identity.anonymous and ('sysadmin' in tg.identity.user.memberships or 'accounts' in tg.identity.user.memberships)"><a href="/user/list"><i class="icon-list"></i> ${_('User List')}</a></li>
-            <li py:if="not tg.identity.anonymous"><a href="/group/list/A*"><i class="icon-list"></i> ${_('Group List')}</a></li>
+            <li py:if="not tg.identity.anonymous and ('sysadmin' in tg.identity.groups or 'accounts' in tg.identity.groups)"><a href="${tg.url('/group/new')}"><i class="icon-plus"></i> ${_('New Group')}</a></li>
+            <li py:if="not tg.identity.anonymous and ('sysadmin' in tg.identity.groups or 'accounts' in tg.identity.groups)"><a href="${tg.url('/user/list')}"><i class="icon-user"></i> ${_('User List')}</a></li>
+            <li py:if="not tg.identity.anonymous"><a href="${tg.url('/group/list/A*')}"><i class="icon-group"></i> ${_('Group List')}</a></li>
             <li><a href="http://fedoraproject.org/wiki/FWN/LatestIssue"><i class="icon-bullhorn"></i> ${_('News')}</a></li>
           </ul>
           <div py:if="tg.identity.anonymous and tg.available_languages and len(tg.available_languages) > 1" id="language">
@@ -84,10 +84,10 @@
             ${_('FAS version %s') % tg.fas_version}
           </p>
           <p class="copy">
-          ${Markup(_('&copy; 2012 Red Hat, Inc.  Please send any comments or corrections to the &lt;a href="mailto:%(webmaster)s"&gt;websites team&lt;/a&gt;.') % {'webmaster': tg.webmaster_email})}
+            ${Markup(_('&copy; 2013 Red Hat, Inc.  Please send any comments or corrections to the &lt;a href="mailto:%(webmaster)s"&gt;websites team&lt;/a&gt;.') % {'webmaster': tg.webmaster_email})}
           </p>
           <p class="disclaimer">
-          ${_('The Fedora Project is maintained and driven by the community and sponsored by Red Hat.  This is a community maintained site.  Red Hat is not responsible for content.')}
+            ${_('The Fedora Project is maintained and driven by the community and sponsored by Red Hat.  This is a community maintained site.  Red Hat is not responsible for content.')}
           </p>
         </div>
       </div>
