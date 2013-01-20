@@ -306,7 +306,7 @@ a
 
 #sidebar li:hover
 {
-  background: #aaaaaa;
+  background: #c0d5ff;
   width: 150px;
 }
 
@@ -316,6 +316,11 @@ a
   padding: 10px;
   color: #445566;
   display: block;
+}
+
+#sidebar li.sb-active, #sidebar li.sb-active a {
+    background-color: #264660;
+    color: #eeeeee !important;
 }
 
 #language
@@ -425,7 +430,6 @@ a
   margin-top: 1ex;
   padding-top: 1ex;
   padding-left: 22px;
-  background: url(../images/arrow.png) 0 1.6ex no-repeat;
 }
 
 #rolespanel h4
