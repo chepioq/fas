@@ -559,6 +559,10 @@ table.newtable thead {
   background: -o-linear-gradient(top, #eeeeee, #dddddd);
 }
 
+table.newtable td {
+  padding: 10px !important;
+}
+
 table.newtable tr.odd {
     background-color: #eeeeee;
 }
