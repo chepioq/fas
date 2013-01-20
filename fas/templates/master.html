@@ -50,7 +50,7 @@
         <div id="sidebar">
           <ul>
             <li><a href="${tg.url('/home')}"><i class="icon-home"></i> ${_('Home')}</a></li>
-            <li py:if="not tg.identity.anonymous"><a href="${tg.url('/user/view/%s' % tg.identity.user.username)}"><i class="icon-user"></i> ${_('My Account')}</a></li>
+            <li py:if="not tg.identity.anonymous"><a href="${tg.url('/user/view/%s' % tg.identity.user.username)}"><i class="icon-pencil"></i> ${_('My Account')}</a></li>
             <li py:if="not tg.identity.anonymous and ('sysadmin' in tg.identity.groups or 'accounts' in tg.identity.groups)"><a href="${tg.url('/group/new')}"><i class="icon-plus"></i> ${_('New Group')}</a></li>
             <li py:if="not tg.identity.anonymous and ('sysadmin' in tg.identity.groups or 'accounts' in tg.identity.groups)"><a href="${tg.url('/user/list')}"><i class="icon-user"></i> ${_('User List')}</a></li>
             <li py:if="not tg.identity.anonymous"><a href="${tg.url('/group/list/A*')}"><i class="icon-group"></i> ${_('Group List')}</a></li>
@@ -67,7 +67,9 @@
             </form>
           </div>
         </div>
-        <header></header>
+        <header>
+          <div style="height: 50px;"></div>
+        </header>
         <div py:if="tg_flash" id="flash">
           <p>${tg_flash}</p>
         </div>

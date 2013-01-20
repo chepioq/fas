@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <div py:match="header" id="master_header">
+      <h2>${_('Log In')}</h2> <!-- NEWSTRING -->
+      <h4>${_('You must provide your credentials before accessing this resource.')}</h4> <!-- NEWSTRING -->
+    </div>
     <loginform>${message}</loginform>
   </body>
 </html>

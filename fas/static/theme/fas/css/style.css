@@ -106,6 +106,9 @@
     border-bottom: 1px solid #888800;
 }
 
+/* TODO: This is a horrible hack to get around patching python-fedora. */
+#login-box h3, #login-box p { display: none; }
+
 *
 {
   margin: 0;
@@ -287,6 +290,7 @@ a
   bottom: 0;
   position: fixed;
   box-shadow: 2px 0 2px #888888;
+  padding-top: 10px;
 }
 
 #sidebar ul
@@ -296,20 +300,22 @@ a
 
 #sidebar li {
     display: block;
-    padding: 10px;
     padding-left: 0;
+    width: 150px;
 }
+
+#sidebar li:hover
+{
+  background: #aaaaaa;
+  width: 150px;
+}
+
 
 #sidebar a
 {
   padding: 10px;
   color: #445566;
-}
-
-#sidebar a:hover
-{
-  background: #aaaaaa;
-  border-radius: 5px;
+  display: block;
 }
 
 #language
@@ -320,11 +326,6 @@ a
 #language label
 {
   color: #445566;
-}
-
-#language input
-{
-  width: 4ex;
 }
 
 #content
