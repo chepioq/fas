@@ -13,9 +13,10 @@
     from fas.model import Groups, People
     person = People.by_username(tg.identity.user.username)
     ?>
-
-    <h2>${_('List (%s)') % search}</h2>
-    <h3>${_('Search Groups')}</h3>
+    <div py:match="header" id="master_header">
+      <h2>${_('List (%s)') % search}</h2>
+      <h3>${_('Search Groups')}</h3>
+    </div>
     ${search_box('/group/list')}
 
     <table py:if="groups" class="newtable">

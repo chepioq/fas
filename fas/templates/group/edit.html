@@ -7,7 +7,9 @@
     <title>${_('Edit Group')}</title>
   </head>
   <body>
-    <h2>${_('Edit Group: %s') % group.name}</h2>
+    <div py:match="header" id="master_header">
+      <h2>${_('Edit Group: %s') % group.name}</h2>
+    </div>
     <form action="${tg.url('/group/save/%s' % group.name)}" method="post">
       <div class="field">
         <label for="display_name">${_('Display Name:')}</label>

@@ -35,7 +35,7 @@
           </ul>
         </div>
       </div>
-      <div id="topnav" class="shadow">
+      <!--<div id="topnav" class="shadow">
         <ul>
           <li><a href="http://fedoraproject.org/"><i class="icon-lightbulb"></i> ${_('Learn about Fedora')}</a></li>
           <li><a href="http://get.fedoraproject.org/"><i class="icon-download"></i> ${_('Download Fedora')}</a></li>
@@ -45,7 +45,7 @@
           <li><a href="http://docs.fedoraproject.org/"><i class="icon-book"></i> ${_('Help/Documentation')}</a></li>
           <li><a href="https://fedoraproject.org/code-of-conduct"><i class="icon-pushpin"></i> ${_('Code of Conduct')}</a></li>
         </ul>
-      </div>
+      </div>-->
       <div id="main">
         <div id="sidebar">
           <ul>
@@ -67,10 +67,11 @@
             </form>
           </div>
         </div>
+        <header></header>
+        <div py:if="tg_flash" id="flash">
+          <p>${tg_flash}</p>
+        </div>
         <div id="content">
-          <div py:if="tg_flash" class="flash">
-            ${tg_flash}
-          </div>
           <div py:replace="select('*|text()')" />
         </div>
         <div id="footer">

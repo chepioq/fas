@@ -7,7 +7,9 @@
     <title>${_('Change Security Question')}</title>
   </head>
   <body>
-    <h2>${_('Change Security Question')}</h2>
+    <div py:match="header" id="master_header">
+      <h2>${_('Change Security Question')}</h2>
+    </div>
     <form action="${tg.url('/user/setquestion')}" method="post">
       <p>${_('Please enter your current password for confirmation, and then choose a new security question and answer.')}</p>
       <p>${_('This question will be asked if you lose access to your email address and want to recover access to your account.')}</p>

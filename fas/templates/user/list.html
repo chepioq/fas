@@ -7,7 +7,10 @@
     <title>${_('Users List')}</title>
   </head>
   <body>
-    <h2>${_('List (%s)') % search}</h2>
+    <div py:match="header" id="master_header">
+      <h2>${_('List (%s)') % search}</h2>
+      <h3>${_('Search Users')}</h3> <!-- NEWSTRING -->
+    </div>
     <form method="post" action="${tg.url('/user/list')}">
       <p>${_('"*" is a wildcard (Ex: "ric*")')}</p>
       <div>

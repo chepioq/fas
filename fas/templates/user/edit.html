@@ -17,7 +17,9 @@
     <title>${_('Edit Account')}</title>
   </head>
   <body>
-    <h2>${_('Edit Account (%s)') % target.username}</h2>
+    <div py:match="header" id="master_header">
+      <h2>${_('Edit Account (%s)') % target.username}</h2>
+    </div>
     <div class="field">
       <label>${_('Password:')}</label>
       <a href="${tg.url('/user/changepass')}">${_('(change)')}</a>

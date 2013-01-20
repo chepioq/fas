@@ -91,6 +91,21 @@
 
 .topmargin { margin-top: 20px; }
 
+#master_header {
+    background-color: #E0E3EC;
+    padding: 20px;
+    margin-top: 45px;
+    margin-left: 150px;
+    border-bottom: 1px solid #C0C5D1;
+}
+
+#flash {
+    background-color: #ffffcc;
+    padding: 20px;
+    margin-left: 150px;
+    border-bottom: 1px solid #888800;
+}
+
 *
 {
   margin: 0;
@@ -160,7 +175,11 @@ a
   height: 30px;
   line-height: 30px;
   background-color: #dddddd;
-  margin-top: 5px;
+  margin-top: 45px;
+  position: fixed;
+  width: 100%;
+  border-top: 1px solid #000;
+  display: block;
 }
 
 #topnav ul
@@ -195,6 +214,7 @@ a
 {
   height: 35px;
   line-height: 35px;
+  width: 100%;
   padding: 5px 10px 5px 10px;
   font-size: 1em;
   background-color: #eeeeee;
@@ -203,6 +223,8 @@ a
   background: -moz-linear-gradient(top, #eeeeee, #dddddd);
   background: -ms-linear-gradient(top, #eeeeee, #dddddd);
   background: -o-linear-gradient(top, #eeeeee, #dddddd);
+  top: 0;
+  position: fixed;
 }
 
 #authstatus
@@ -221,7 +243,7 @@ a
 #control
 {
   float: right;
-  margin-right: 1ex;
+  margin-right: 20px; /* TODO: Nuke this and merge with #infobar */
 }
 
 #control ul
@@ -256,11 +278,15 @@ a
 
 #sidebar
 {
-  margin-top: 20px;
-  width: 22ex;
+  width: 150px;
   float: left;
   background-color: #dddddd;
   border-radius: 3px;
+  display: block;
+  top: 46px;
+  bottom: 0;
+  position: fixed;
+  box-shadow: 2px 0 2px #888888;
 }
 
 #sidebar ul
@@ -271,6 +297,7 @@ a
 #sidebar li {
     display: block;
     padding: 10px;
+    padding-left: 0;
 }
 
 #sidebar a
@@ -282,6 +309,7 @@ a
 #sidebar a:hover
 {
   background: #aaaaaa;
+  border-radius: 5px;
 }
 
 #language
@@ -291,7 +319,7 @@ a
 
 #language label
 {
-  color: #FFFFFF;
+  color: #445566;
 }
 
 #language input
@@ -301,7 +329,7 @@ a
 
 #content
 {
-  margin-left: 22ex;
+  margin-left: 150px;
   padding: 2ex 4ex;
 }
 
@@ -341,7 +369,6 @@ a
 .account
 {
   padding-left: 30px;
-  background: url(../images/account.png) 0 68% no-repeat;
 }
 
 .approved
@@ -480,30 +507,6 @@ a
   color: #3465A4;
 }
 
-.flash div.success, .flash div.info
-{
-  background: #DEE6B1 url(../images/success.png) 10px 50% no-repeat;
-  border: 1px solid #CCBBAA;
-  padding: 1.5ex 15px 1.5ex 43px;
-  margin: 1ex 0;
-}
-
-.flash div.error
-{
-  background: #DEE6B1 url(../images/error.png) 10px 50% no-repeat;
-  border: 1px solid #CCBBAA;
-  padding: 1.5ex 15px 1.5ex 43px;
-  margin: 1ex 0;
-}
-
-.flash div.warning
-{
-  background: #DEE6B1 url(../images/warning.png) 10px 50% no-repeat;
-  border: 1px solid #CCBBAA;
-  padding: 1.5ex 15px 1.5ex 43px;
-  margin: 1ex 0;
-}
-
 .help
 {
   background: #DEE6B1 url(../images/help.png) 10px 50% no-repeat;
@@ -576,6 +579,9 @@ pre
 {
   font-size: 3ex;
 }
+
+input#user_name, label[for=user_name] { font-size: 1.3em; }
+input#password, label[for=password] { font-size: 1.3em; }
 
 form
 {
@@ -655,4 +661,18 @@ legend
 input.sub-button{
   min-width: 110px;
   margin-left: 39ex;
+}
+
+input[type=submit], button {
+  background-color: #19558D;
+  border: 1px solid #19558D;
+  border-radius: 3px 3px 3px 3px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 3px 10px 4px;
+  text-align: center;
+  text-shadow: 0 -1px #19558D;
+  white-space: nowrap;
 }

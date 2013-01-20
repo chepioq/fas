@@ -7,7 +7,9 @@
     <title>${_('Change Password')}</title>
   </head>
   <body>
-    <h2>${_('Change Password')}</h2>
+    <div py:match="header" id="master_header">
+      <h2>${_('Change Password')}</h2>
+    </div>
     <form action="${tg.url('/user/setpass')}" method="post">
       <p>${_('Passphrases need to be of a certain complexity to prevent attackers from guessing it by having a computer try different combinations of characters in rapid succession.  To make such brute force attacks harder we enforce some minimum levels of strength:')}</p>
       <ul>

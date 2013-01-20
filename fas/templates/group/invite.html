@@ -15,10 +15,12 @@
                     "?_csrf_token=" + fedora.identity.token;
       }
     </script>
-    <h2>${_('Invite a new community member!')}</h2>
+    <div py:match="header" id="master_header">
+      <h2>${_('Invite a new community member!')}</h2>
+    </div>
     <form method="post" action="${tg.url('/group/sendinvite/%s') % group.name}">
       <div>
-        <b>${_('Language:')}</b> 
+        <b>${_('Language:')}</b>
           <select name="language" id="language" onchange="goToInviteChangedLanguage(this.options[this.selectedIndex].value);">
             <option py:for="language in tg.available_languages" value="${language}"
                                     py:attrs="{'selected': selected_language == language and 'selected' or None}">

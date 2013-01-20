@@ -16,7 +16,9 @@
     can_admin = auth.can_admin_group(person, group)
     can_sponsor = auth.can_sponsor_group(person, group)
     ?>
-    <h2>${group.display_name} (${group.name})</h2>
+    <div py:match="header" id="master_header">
+      <h2>${group.display_name} (${group.name})</h2>
+    </div>
     <h3>
       ${_('My Status:')}
       <span py:if="group in person.memberships and group in person.approved_memberships" class="approved">${_('Approved')}</span>

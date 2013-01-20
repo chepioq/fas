@@ -13,8 +13,10 @@
     from fas import auth
     from fas.model import People
     person = People.by_username(tg.identity.user.username)
-       ?>
-    <h2>${group.display_name} (${group.name})</h2>
+    ?>
+    <div py:match="header" id="master_header">
+      <h2>${group.display_name} (${group.name})</h2>
+    </div>
     <h3>${_('Group Rules')}</h3>
     <p>The administrator for this group has set a few rules.  There may be tasks you need to do before you can join. They are as follows</p>
     <p>${group.apply_rules}</p>
