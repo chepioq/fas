@@ -159,7 +159,7 @@ HelpBalloon.prototype = {
 		if(typeof this.options.icon == 'string')
 		{
 			this._elements.icon = new Element('i', {
-                            class: 'icon-info-sign',
+                            class: 'icon-info-sign balloonicon',
                             style: 'cursor: pointer;'
 			});
 		}

@@ -91,6 +91,32 @@
 
 .topmargin { margin-top: 20px; }
 
+.formconstraint {
+    width: 600px; /* TODO: Make this wider and less arbitrary. */
+    margin: 0 auto;
+}
+
+.formconstraint label {
+    width: 50%;
+    float: left;
+    text-align: left !important; /* TODO: Nuke important flag. */
+}
+
+.formconstraint input[type=text], .formconstraint textarea {
+    width: 50%;
+    float: right;
+    background-color: #f8f8f8;
+    border: 1px solid #c0c5d1;
+}
+
+.formconstraint input[type=submit] {
+    float: right;
+}
+
+.formconstraint .balloonicon {
+    float: left; /* TODO: float to the right instead, but lined up in a column. */
+}
+
 #master_header {
     background-color: #E0E3EC;
     padding: 20px;
