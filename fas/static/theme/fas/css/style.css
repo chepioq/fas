@@ -697,3 +697,12 @@ input[type=submit], button {
   text-shadow: 0 -1px #19558D;
   white-space: nowrap;
 }
+
+.sshkey {
+    border: 1px solid #ccc;
+    font-family: monospace;
+    padding: 5px;
+    overflow: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}

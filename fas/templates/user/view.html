@@ -67,10 +67,10 @@
         <py:if test="personal or admin">
           <dt>${_('Public SSH Key:')}</dt>
           <dd py:if="person.ssh_key" title="${person.ssh_key}">
-	  <span py:for="key in person.ssh_key.split('\n')" py:strip="True">${key}<br /></span>
-          <a href="${tg.url('/user/clearkey')}">${_('(remove ssh key)')}</a>
-	  </dd>
-    <dd py:if="not person.ssh_key">${_('No ssh key provided')}&nbsp;</dd>
+	          <div py:for="key in person.ssh_key.strip().split('\n')" class="sshkey">${key}</div>
+            <a href="${tg.url('/user/clearkey')}">${_('(remove ssh key)')}</a>
+	        </dd>
+          <dd py:if="not person.ssh_key">${_('No ssh key provided')}&nbsp;</dd>
         </py:if>
         <py:if test="person.comments">
           <dt>${_('Comments:')}</dt><dd>${person.comments}&nbsp;</dd>
