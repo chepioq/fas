@@ -8,8 +8,8 @@
   </head>
   <body>
     <div py:match="header" id="master_header">
-      <h2>${_('List (%s)') % search}</h2>
-      <h3>${_('Search Users')}</h3> <!-- NEWSTRING -->
+      <h2>${_('Search Users')}</h2> <!-- NEWSTRING -->
+      <h3>${_('List (%s)') % search}</h3>
     </div>
     <form method="post" action="${tg.url('/user/list')}">
       <p>${_('"*" is a wildcard (Ex: "ric*")')}</p>
@@ -23,26 +23,28 @@
       <li py:for="letter in 'abcdefghijklmnopqrstuvwxyz'.upper()"><a href="${tg.url('/user/list/%s*' % letter)}">${letter}</a></li>
       <li><a href="${tg.url('/user/list/*')}">${_('All')}</a></li>
     </ul>
-    <table class="newtable">
-      <thead>
+    <table class="newtable topmargin users">
+      <!--<thead>
         <tr>
           <th>${_('Username')}</th>
           <th>${_('Account Status')}</th>
         </tr>
-      </thead>
+      </thead>-->
       <tbody>
-        <tr py:for="person in people">
-          <td><a href="${tg.url('/user/view/%s' % person.username)}">${person.username}</a></td>
-          <td>
-            <span class="approved">${_('CLA Done')}</span>
-          </td>
-        </tr>
-        <tr py:for="person in unapproved_people">
-          <td><a href="${tg.url('/user/view/%s' % person.username)}">${person.username}</a></td>
-          <td>
-            <span class="unapproved">${_('Not Done')}</span>
-          </td>
-        </tr>
+        <py:for each="person in people">
+          <tr class="list status-${person.status}">
+            <td><a href="${tg.url('/user/view/%s' % person.username)}">${person.username}</a></td>
+            <td><span class="approved">${_('CLA Done')}</span></td>
+          </tr>
+          <tr class="separator"></tr>
+        </py:for>
+        <py:for each="person in unapproved_people">
+          <tr class="list status-${person.status}">
+            <td><a href="${tg.url('/user/view/%s' % person.username)}">${person.username}</a></td>
+            <td><span class="unapproved">${_('Not Done')}</span></td>
+          </tr>
+          <tr class="separator"></tr>
+        </py:for>
       </tbody>
     </table>
   </body>

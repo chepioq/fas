@@ -90,6 +90,8 @@
 .clearfix { zoom: 1; }
 
 .topmargin { margin-top: 20px; }
+.padtop { padding-top: 10px; }
+.padbottom { padding-bottom: 10px; }
 
 .formconstraint {
     width: 600px; /* TODO: Make this wider and less arbitrary. */
@@ -583,12 +585,16 @@ table.newtable thead {
   background: -o-linear-gradient(top, #eeeeee, #dddddd);
 }
 
-table.newtable td {
-  padding: 10px !important;
-}
-
-table.newtable tr.odd {
-    background-color: #eeeeee;
+table.newtable td { padding: 7px !important; }
+table.newtable.users td { border: none !important; }
+table.newtable tr.separator { height: 5px; }
+table.newtable tr.status-active { border-left: 8px solid #00bb22; }
+table.newtable tr.status-inactive { border-left: 8px solid red; }
+table.newtable tr.status-admin_disabled { border-left: 8px solid #888888; }
+table.newtable tr.list {
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
 }
 
 #content p
