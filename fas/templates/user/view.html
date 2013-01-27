@@ -140,48 +140,26 @@
       <li><a href="${tg.url('/')}">${_('(Create a new project)')}</a></li>
     </ul>
     -->
-    <ul id="rolespanel">
-      <py:for each="role in sorted(person['roles'], lambda x,y: cmp(x.group.name, y.group.name))">
-      <li py:if="auth.can_view_group(viewer, role.group)" class="role">
-      <h4><i class="icon-chevron-down"></i> <a href="${tg.url('/group/view/%s') % role.group.name}">${role.group.display_name}</a></h4> (${role.role_type})
-      <dl>
-        <dt>${_('Status:')}</dt>
-        <dd>
-        <span class="approved" py:if="role.role_status == 'approved'">${_('Approved')}</span>
-        <span class="unapproved" py:if="role.role_status == 'unapproved'">${_('Unapproved')}</span>
-        </dd>
-        <py:if test="personal">
-        <dt>${_('Tools:')}</dt>
-        <dd>
-        <ul class="tools">
-          <li><i class="icon-arrow-right"></i> <a href="${tg.url('/group/view/%s' % role.group.name)}">${_('View Group')}</a></li>
-          <li py:if="role.role_status == 'approved'">
-            <i class="icon-arrow-right"></i> <a href="${tg.url('/group/invite/%s/%s/' % (role.group.name, locale))}">
-              ${_('Invite a New Member...')}
-            </a>
-          </li>
-          <li py:if="auth.can_sponsor_group(People.by_username(person['username']), role.group)">
-            <i class="icon-arrow-right"></i> <a href="${tg.url('/group/view/%s' % role.group.name)}">${_('Manage Group Membership...')}</a>
-          </li>
-          <li py:if="auth.can_edit_group(People.by_username(person['username']), role.group)">
-            <i class="icon-arrow-right"></i> <a href="${tg.url('/group/edit/%s' % role.group.name)}">${_('Manage Group Details...')}</a>
-          </li>
-        </ul>
-        </dd>
-        <py:if test="auth.can_sponsor_group(People.by_username(person['username']), role.group) and role.group.unapproved_roles">
-        <dt>${_('Queue:')}</dt>
-        <dd>
-        <ul class="queue">
-          <li py:for="unapproved_role in role.group.unapproved_roles[:5]">
-          ${Markup(_('&lt;strong&gt;%(user)s&lt;/strong&gt; requests approval to join &lt;strong&gt;%(unapproved_role.group)s&lt;/strong&gt;.') % {'user': unapproved_role.member.username, 'unapproved_role.group': unapproved_role.group.name})}
-          </li>
-        </ul>
-        </dd>
-        </py:if>
-        </py:if>
-      </dl>
-      </li>
-      </py:for>
-    </ul>
+    <table class="newtable topmargin groups">
+      <thead>
+        <th>${_('Name')}</th>
+        <th>${_('Status')}</th>
+        <th>${_('Position')}</th>
+        <th>${_('Description')}</th>
+        <th>${_('Type')}</th>
+      </thead>
+      <tbody>
+        <py:for each="role in sorted(person['roles'], lambda x,y: cmp(x.role_type, y.role_type) or cmp(x.group.name, y.group.name))">
+          <tr class="separator"></tr>
+          <tr class="list role-${role.role_type} status-${role.role_status}">
+            <td><a href="${tg.url('/group/view/%s') % role.group.name}"><strong>${role.group.name}</strong></a></td>
+            <td>${role.role_status}</td>
+            <td>${role.role_type}</td>
+            <td>${role.group.display_name}</td>
+            <td>${role.group.group_type}</td>
+          </tr>
+        </py:for>
+      </tbody>
+    </table>
   </body>
 </html>
