@@ -137,50 +137,6 @@
 /* TODO: This is a horrible hack to get around patching python-fedora. */
 #login-box h3, #login-box p { display: none; }
 
-.formconstraint {
-    width: 600px; /* TODO: Make this wider and less arbitrary. */
-    margin: 0 auto;
-}
-
-.formconstraint label {
-    width: 50%;
-    float: left;
-    text-align: left !important; /* TODO: Nuke important flag. */
-}
-
-.formconstraint input[type=text], .formconstraint textarea {
-    width: 50%;
-    float: right;
-    background-color: #f8f8f8;
-    border: 1px solid #c0c5d1;
-}
-
-.formconstraint input[type=submit] {
-    float: right;
-}
-
-.formconstraint .balloonicon {
-    float: left; /* TODO: float to the right instead, but lined up in a column. */
-}
-
-#master_header {
-    background-color: #E0E3EC;
-    padding: 20px;
-    margin-top: 55px;
-    margin-left: 150px;
-    border-bottom: 1px solid #C0C5D1;
-}
-
-#flash {
-    background-color: #ffffcc;
-    padding: 20px;
-    margin-left: 200px;
-    border-bottom: 1px solid #888800;
-}
-
-/* TODO: This is a horrible hack to get around patching python-fedora. */
-#login-box h3, #login-box p { display: none; }
-
 *
 {
   margin: 0;
