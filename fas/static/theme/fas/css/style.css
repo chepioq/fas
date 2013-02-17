@@ -601,10 +601,10 @@ table.newtable tr.status-approved { border-left: 8px solid #00bb22; }
 table.newtable tr.status-admin_disabled,
 table.newtable tr.status-unapproved { border-left: 8px solid #888888 !important; }
 
-table.newtable tr.status-inactive { border-left: 8px solid red; }
 table.newtable tr.role-user { border-left: 8px solid #006699; }
 table.newtable tr.role-sponsor { border-left: 8px solid #660099; }
-table.newtable tr.role-administrator { border-left: 8px solid #bb0000; }
+table.newtable tr.role-administrator,
+table.newtable tr.status-inactive { border-left: 8px solid #bb0000; }
 
 table.newtable tr.list {
     border-top: 1px solid #cccccc;
